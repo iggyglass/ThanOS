@@ -29,18 +29,18 @@ loop: ; Fill up hdd with data
     jne loop
     loopEnd:
 
-    mov al, 'b'
+    mov al, 'b' ; write finished character to screen
     call writeCenterChar
 
 pgrmEnd: 
     call readExpandedKey
-    cmp al, 0x3f ; F5 is 0x3f -- check if it was pressed
-    je reboot
+    cmp ax, 0x3f00 ; F5 is 0x3f00 -- check if it was pressed
+    je reboot ; if so, reboot
 
     jmp pgrmEnd
 
 reboot: ; stackoverflow magic (https://stackoverflow.com/questions/32682152/how-to-reboot-in-x86-assembly-from-16-bit-real-mode)
-    db 0x00ea
+    db 0xea
     dw 0x0000
     dw 0xffff
 

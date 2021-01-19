@@ -17,28 +17,29 @@ initScreen:
 
 ; Converts al to two ascii chars corresponding to the hexadecimal
 asciiByte:
-    push ax
+    push ax ; get the low nybble
     and al, 0x0f
     call asciiNybble
 
-    mov bl, al
+    mov bl, al ; get the high nybble
     pop ax
     and al, 0xf0
     shr al, 4
     call asciiNybble
 
-    mov ah, al
+    mov ah, al ; move nybble chars into ax
     mov al, bl
 
     ret
 
 ; Converts the lower nybble in al to an ascii character in hex
 asciiNybble:
+    and al, 0x0f
     cmp al, 0x09
     jle lowNybble
-    add al, ('A' - 0x0a)
+    add al, ('A' - 0x0a) ; Nybble is between a and f
     ret
-lowNybble:
+lowNybble: ; Nybble is between 0 and 9
     add al, '0'
     ret
 
@@ -46,11 +47,11 @@ lowNybble:
 writeHex:
     call asciiByte
 
-    push ax
+    push ax ; print high nybble
     mov al, ah
     call writeCenterChar
 
-    mov dl, 41
+    mov dl, 41 ; move cursor to the right and print low nybble
     pop ax
     call writeChar
 

@@ -1,5 +1,4 @@
-readExpandedKey:
+readExpandedKey: ; reads an expanded keycode (eg. f5, ctrl, etc) of keypress (blocking)
     mov ah, 0x10 ; Read key
     int 0x16
-    mov al, ah
-    ret ; key is in al
+    ret ; key is in ax
