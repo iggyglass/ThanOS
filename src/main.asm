@@ -1,10 +1,13 @@
-[org 0x7c00] ; TODO: ext. not supported error
+[org 0x7c00]
 
     mov bp, 0x9000
     mov sp, bp ; set stack to start at address 9000
 
     call initScreen ; init stuff
     call initChars
+
+    call extSupported ; make sure bios extensions are supported
+    jc error
 
     call read ; read drive data into memory
     jc error

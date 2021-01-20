@@ -1,3 +1,4 @@
+; Initialize the character data
 initChars:
     push ds
     pop es ; set es to ds
@@ -17,4 +18,3 @@ initChars:
 font:
     %include "images/asm/A.asm"
     %include "images/asm/B.asm"
-    

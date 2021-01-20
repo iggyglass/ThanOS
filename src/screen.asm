@@ -1,5 +1,6 @@
 ; Screen size is 80x25 characters
 
+; Initialize the screen
 initScreen:
     mov ax, 0x0003 ; Clear screen
     int 0x10
@@ -57,12 +58,14 @@ writeHex:
 
     ret
 
+; Write a character to the center of the screen
 writeCenterChar:
     mov dh, 12 ; Center char
     mov dl, 40
     call writeChar
     ret
 
+; Write a character at y=dh and x=dl
 writeChar: ; char to print is assumed to be in al
     mov bh, 0
     mov ah, 0x02

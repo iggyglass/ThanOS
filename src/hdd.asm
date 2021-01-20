@@ -14,6 +14,15 @@ write:
     int 0x13 ; do the thing
     ret
 
+; Checks if the bios extension methods are supported
+extSupported:
+    mov ah, 0x14
+    mov bx, 0x55aa
+    mov dl, 0x80
+    int 0x13
+    mov ah, 0x15 ; Ext. not supported error code
+    ret
+
 ; A structure in which a LBA packet is stored
 drivePacket:
     db 0x10 ; Size of packet
