@@ -17,20 +17,20 @@
 
     o32 xor eax, eax ; zero the a register
 
-loop: ; Fill up hdd with data
-    o32 mov [lbaData], eax
+.loop: ; Fill up hdd with data
+    o32 mov [drivePacket.lbaData], eax
 
     call write
-    jnc continue ; Stop when a drive error occurs
+    jnc .continue ; Stop when a drive error occurs
     call errorCheck ; check if out of space or drive error
-    jmp loopEnd
+    jmp .loopEnd
 
-    continue:
-    o32 mov eax, [lbaData]
+.continue:
+    o32 mov eax, [drivePacket.lbaData]
     o32 inc eax
     o32 cmp eax, 0xffffffff ; Keep going until drive full or max LBA address
-    jne loop
-    loopEnd:
+    jne .loop
+.loopEnd:
 
     mov al, 'b' ; write finished character to screen
     call writeCenterChar
@@ -53,7 +53,7 @@ reboot: ; stackoverflow magic (https://stackoverflow.com/questions/32682152/how-
     %include "hdd.asm"
     %include "chars.asm"
     
-times 510-($-$$) db 0 ; boot sector padding
+times 510 - ($ - $$) db 0 ; boot sector padding
     dw 0xaa55 ; Magic boot number
 
 driveData:

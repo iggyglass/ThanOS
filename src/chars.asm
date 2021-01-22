@@ -2,7 +2,7 @@
 initChars:
     push ds
     pop es ; set es to ds
-    mov bp, font
+    mov bp, .font
 
     mov cx, 2 ; only changing 2 chars
     mov dx, 'a' ; starting at a
@@ -15,6 +15,6 @@ initChars:
 
     ret
 
-font:
+.font:
     %include "images/asm/A.asm"
     %include "images/asm/B.asm"

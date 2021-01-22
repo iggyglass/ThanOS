@@ -27,11 +27,11 @@ extSupported:
 drivePacket:
     db 0x10 ; Size of packet
     db 0 ; always 0
-blkCount:
+.blkCount:
     dw 1 ; number of sectors to transfer
-transBuff:
+.transBuff:
     dw driveData ; memory buffer address
     dw 0 ; memory page
-lbaData:
+.lbaData:
     dd 1 ; The actual lba address
     dd 0
