@@ -2,19 +2,19 @@
 For when you need to perfectly balance your hard drive.
 
 ## What
-Basically it just makes half of the data in your hard drive 1s and the other half 0s. it only does this with the second hard drive you have installed (think of the `D:\` drive on Windows), thus not destroying itself.
+Basically it just makes half of the data in your hard drive 1s and the other half 0s. It only does this with the second hard drive you have installed (think of the `D:\` drive on Windows), thus not destroying itself.
 
 ## Why
 The pun was too good to pass up.
 
 ## Binary
-The binary of the most recent build of this project can be found in `bin/boot.bin`. As of writing, the entire system takes up 1KB of disk space.
+The binary of the most recent build of this project can be found in `bin/boot.bin`. As of writing, the entire system takes up 1KiB (1.024KB) of disk space.
 
 ## Assembling 
-For testing this project, I personally used [NASM](https://www.nasm.us/), however any assembler of your choosing *should* as well, assuming it uses the same syntax. If you are on a Windows system, I have included my batch file (`compile.bat`) that I use when I need to assemble the project.
+For assembling this project, I personally used [NASM](https://www.nasm.us/), however any assembler of your choosing *should work* as well, assuming it uses the same syntax. If you are on a Windows system, I have included my batch file (`compile.bat`) which I use to assemble the project.
 
 ## Emulating
-If for some reason you don't wish to *actually delete all of the files on your hard drive*, and wish to emulate a system instead, then I can recommend [QEMU](https://www.qemu.org/), which is what I used for testing. To test writing to a hard drive, I wrote a python script (`test/imgGen.py`) to generate a `.img` file for usage as a fake hard drive. By default, it is filled with 1.44MB of `0xAB` (Thus making the emulated drive 1.44MB in size). If you are on a Windows system, I have included my batch file (`run.bat`) that I use when I need to emulate this project. 
+If for some reason you don't wish to *actually delete all of the files on your hard drive*, and wish to emulate a system instead, then I can recommend [QEMU](https://www.qemu.org/), which is what I used for testing. To test writing to a hard drive, I wrote a python script (`test/imgGen.py`) to generate a `.img` file for usage as a fake hard drive. By default, it is filled with 1.44MB of `0xAB` (Thus making the emulated drive 1.44MB in size). If you are on a Windows system, I have included my batch file (`run.bat`) which I use to emulate this project. 
 
 ## Usage
 ### Normal operation
