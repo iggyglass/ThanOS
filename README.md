@@ -4,6 +4,11 @@ For when you need to perfectly balance your hard drive.
 ## What
 Basically it just makes half of the data in your hard drive 1s and the other half 0s. It only does this with the second hard drive you have installed (think of the `D:\` drive on Windows), thus not destroying itself.
 
+### For non-techy folk
+It's not *really* an OS (operating system) as it doesn't deal with any of the complexities of scheduling or memory management, rather a simple program that runs directly on the hardware with no virtualization. It does however run in a similar manner to the way that a slightly older, but still modern OS (think Windows XP or Vista) would.
+
+I wrote this primarily as a joke project for my friends, however it also ended up serving the purpose of teaching me about the boot process (how the computer actually starts up) on an x86 (modern desktop) machine as well as helping me to better my x86 assembly skills and thus understand the architecture (how the CPU is designed) much better.
+
 ## Why
 The pun was too good to pass up.
 
